@@ -30,88 +30,29 @@
   <link rel="stylesheet" href="assets/css/custom-override.css">
   
   <script>
-    // Função ultra-agressiva para forçar mudanças
-    function forceChanges() {
-      console.log('Forçando mudanças...');
-      
-      // Força tamanho do header com múltiplas abordagens
-      var header = document.getElementById('header4-0');
+    // Função para aplicar estilos no header uma única vez
+    function applyHeaderStyles() {
+      var header = document.getElementById("header4-0");
       if (header) {
-        // Remove TODAS as classes que podem interferir
-        header.classList.remove('mbr-section--full-height');
-        
-        // Força estilos de múltiplas formas
-        header.style.cssText += '; height: 50vh !important; min-height: 400px !important; max-height: 50vh !important;';
-        header.style.setProperty('height', '50vh', 'important');
-        header.style.setProperty('min-height', '400px', 'important');
-        header.style.setProperty('max-height', '50vh', 'important');
-        
-        // Força via setAttribute também
-        var currentStyle = header.getAttribute('style') || '';
-        header.setAttribute('style', currentStyle + '; height: 50vh !important; min-height: 400px !important; max-height: 50vh !important;');
-        
-        console.log('Header height modificado:', header.style.height);
+        header.classList.remove("mbr-section--full-height");
+        header.style.cssText += "; height: 50vh !important; min-height: 400px !important; max-height: 50vh !important;";
       }
       
-      // Força estilos do texto
-      var title = document.querySelector('#header4-0 .mbr-hero__text');
+      var title = document.querySelector("#header4-0 .mbr-hero__text");
       if (title) {
-        title.style.cssText += '; font-size: 4.5rem !important; font-weight: 700 !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important; margin-bottom: 30px !important; line-height: 1.1 !important;';
-        console.log('Título modificado:', title.style.fontSize);
+        title.style.cssText += "; font-size: 4.5rem !important; font-weight: 700 !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important; margin-bottom: 30px !important; line-height: 1.1 !important;";
       }
       
-      var subtitle = document.querySelector('#header4-0 .mbr-hero__subtext');
+      var subtitle = document.querySelector("#header4-0 .mbr-hero__subtext");
       if (subtitle) {
-        subtitle.style.cssText += '; font-size: 1.8rem !important; font-weight: 400 !important; text-shadow: 1px 1px 3px rgba(0,0,0,0.7) !important; margin-bottom: 40px !important; line-height: 1.4 !important;';
-        console.log('Subtítulo modificado:', subtitle.style.fontSize);
+        subtitle.style.cssText += "; font-size: 1.8rem !important; font-weight: 400 !important; text-shadow: 1px 1px 3px rgba(0,0,0,0.7) !important; margin-bottom: 40px !important; line-height: 1.4 !important;";
       }
     }
     
-    // Executa imediatamente se DOM já carregou
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', forceChanges);
-    } else {
-      forceChanges();
-    }
-    
-    // Executa em múltiplos momentos para garantir
-    window.addEventListener('load', forceChanges);
-    setTimeout(forceChanges, 100);
-    setTimeout(forceChanges, 500);
-    setTimeout(forceChanges, 1000);
-    setTimeout(forceChanges, 2000);
-    setTimeout(forceChanges, 3000);
-    
-    // Observer para detectar e corrigir mudanças automáticas
-    if (window.MutationObserver) {
-      var observer = new MutationObserver(function(mutations) {
-        var needsUpdate = false;
-        mutations.forEach(function(mutation) {
-          if (mutation.type === 'attributes' && 
-              (mutation.attributeName === 'style' || mutation.attributeName === 'class')) {
-            needsUpdate = true;
-          }
-        });
-        if (needsUpdate) {
-          setTimeout(forceChanges, 10);
-        }
-      });
-      
-      setTimeout(function() {
-        var targetNode = document.getElementById('header4-0');
-        if (targetNode) {
-          observer.observe(targetNode, { 
-            attributes: true, 
-            attributeOldValue: true,
-            subtree: true,
-            childList: true
-          });
-          console.log('Observer ativado para monitorar mudanças');
-        }
-      }, 100);
-    }
-  </script>
+    // Executa apenas uma vez quando a página carrega
+    window.addEventListener("load", applyHeaderStyles);
 
+  </script>
   
   
   
