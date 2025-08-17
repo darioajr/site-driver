@@ -81,6 +81,7 @@ section#header4-0.mbr-section .mbr-overlay {
     padding: 30px 0;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     position: relative;
+    transform: translateZ(0); /* Force hardware acceleration */
 }
 
 .clients-container::before,
@@ -106,16 +107,19 @@ section#header4-0.mbr-section .mbr-overlay {
 
 .clients-scroll {
     display: flex;
-    animation: scroll 60s linear infinite;
+    animation: scroll 120s linear infinite;
     white-space: nowrap;
+    will-change: transform;
+    transform: translateZ(0); /* Force hardware acceleration */
+    backface-visibility: hidden; /* Smooth animation */
 }
 
 @keyframes scroll {
     0% {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translate3d(-50%, 0, 0);
     }
 }
 
@@ -176,7 +180,7 @@ section#header4-0.mbr-section .mbr-overlay {
 /* Responsividade */
 @media (max-width: 768px) {
     .clients-scroll {
-        animation-duration: 45s;
+        animation-duration: 90s;
     }
     
     .client-logo {
@@ -193,7 +197,7 @@ section#header4-0.mbr-section .mbr-overlay {
 
 @media (max-width: 480px) {
     .clients-scroll {
-        animation-duration: 35s;
+        animation-duration: 70s;
     }
     
     .client-logo {
