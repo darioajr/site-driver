@@ -107,11 +107,12 @@ section#header4-0.mbr-section .mbr-overlay {
 
 .clients-scroll {
     display: flex;
-    animation: scroll 120s linear infinite;
+    animation: scroll 40s linear infinite;
     white-space: nowrap;
     will-change: transform;
     transform: translateZ(0); /* Force hardware acceleration */
     backface-visibility: hidden; /* Smooth animation */
+    width: 200%; /* Garante espaço suficiente para a duplicação */
 }
 
 @keyframes scroll {
@@ -168,6 +169,11 @@ section#header4-0.mbr-section .mbr-overlay {
     object-fit: contain;
 }
 
+/* Reduzir espaçamento específico para logos mencionados */
+.client-logo.compact-spacing {
+    margin: 0 4px;
+}
+
 .client-logo:hover img {
     filter: grayscale(70%) opacity(0.9);
 }
@@ -180,7 +186,7 @@ section#header4-0.mbr-section .mbr-overlay {
 /* Responsividade */
 @media (max-width: 768px) {
     .clients-scroll {
-        animation-duration: 90s;
+        animation-duration: 30s;
     }
     
     .client-logo {
@@ -197,7 +203,7 @@ section#header4-0.mbr-section .mbr-overlay {
 
 @media (max-width: 480px) {
     .clients-scroll {
-        animation-duration: 70s;
+        animation-duration: 25s;
     }
     
     .client-logo {
