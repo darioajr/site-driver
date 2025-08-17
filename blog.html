@@ -66,69 +66,84 @@
 
 <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="blog-posts" style="background-color: rgb(255, 255, 255); padding-top: 93px; padding-bottom: 93px;">
     <div class="mbr-section__container container">
-        <div class="row">
-            <div class="col-md-6 col-sm-12" style="margin-bottom: 40px;">
-                <article class="mbr-article" style="background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; height: 100%;">
-                    <div class="mbr-article__img">
-                        <img src="assets/images/cloud.webp" alt="Inteligência Artificial" class="img-responsive">
-                    </div>
-                    <div class="mbr-article__content" style="padding: 20px; display: flex; flex-direction: column;">
-                        <h4>Microsoft investe US$ 80 bilhões em IA para 2025</h4>
-                        <p class="mbr-article__meta text-muted">Fonte: TechCrunch • 14 de Agosto, 2025</p>
-                        <p style="flex-grow: 1;">A Microsoft anunciou um investimento massivo de US$ 80 bilhões em infraestrutura de IA para 2025, incluindo novos data centers e tecnologias de machine learning. O investimento visa acelerar a adoção de IA empresarial...</p>
-                        <div style="margin-top: 15px;">
-                            <a href="https://techcrunch.com/2024/08/13/microsoft-80-billion-ai-infrastructure/" target="_blank" class="btn btn-primary btn-sm">Leia a notícia completa</a>
-                        </div>
-                    </div>
-                </article>
+        <div id="loading-message" class="text-center" style="padding: 60px 0;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Carregando...</span>
             </div>
-            
-            <div class="col-md-6 col-sm-12" style="margin-bottom: 40px;">
-                <article class="mbr-article" style="background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; height: 100%;">
-                    <div class="mbr-article__img">
-                        <img src="assets/images/cyber-security-illustration-1-600x600.png" alt="Segurança Cibernética" class="img-responsive">
-                    </div>
-                    <div class="mbr-article__content" style="padding: 20px; display: flex; flex-direction: column;">
-                        <h4>Ciberataques crescem 38% no Brasil em 2024</h4>
-                        <p class="mbr-article__meta text-muted">Fonte: InfoMoney • 12 de Agosto, 2025</p>
-                        <p style="flex-grow: 1;">Relatório da Kaspersky mostra que ciberataques contra empresas brasileiras aumentaram 38% no primeiro semestre de 2024. Ransomware e phishing lideram as ameaças, exigindo maior investimento em segurança...</p>
-                        <div style="margin-top: 15px;">
-                            <a href="https://www.infomoney.com.br/tecnologia/ciberataques-crescem-38-no-brasil-em-2024/" target="_blank" class="btn btn-primary btn-sm">Leia a notícia completa</a>
+            <p style="margin-top: 20px;">Carregando as últimas notícias de tecnologia...</p>
+        </div>
+        
+        <div id="blog-content" class="blog-grid" style="display: none;">
+            <!-- Artigos serão carregados dinamicamente aqui -->
+        </div>
+        
+        <div id="error-message" class="text-center" style="display: none; padding: 60px 0;">
+            <h4>Ops! Não foi possível carregar as notícias</h4>
+            <p>Exibindo artigos em destaque:</p>
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-md-6 col-sm-12" style="margin-bottom: 40px;">
+                    <article class="mbr-article article-card" style="background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; height: 100%;">
+                        <div class="mbr-article__img">
+                            <img src="assets/images/cloud.webp" alt="Transformação Digital" class="img-responsive">
                         </div>
-                    </div>
-                </article>
-            </div>
-            
-            <div class="col-md-6 col-sm-12" style="margin-bottom: 40px;">
-                <article class="mbr-article" style="background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; height: 100%;">
-                    <div class="mbr-article__img">
-                        <img src="assets/images/consultoria-ti-450x450.png" alt="Cloud Computing" class="img-responsive">
-                    </div>
-                    <div class="mbr-article__content" style="padding: 20px; display: flex; flex-direction: column;">
-                        <h4>AWS lança nova região no Brasil investindo R$ 10 bi</h4>
-                        <p class="mbr-article__meta text-muted">Fonte: Valor Econômico • 8 de Agosto, 2025</p>
-                        <p style="flex-grow: 1;">Amazon Web Services anuncia investimento de R$ 10 bilhões para criar nova região de cloud computing em São Paulo, prometendo reduzir latência e melhorar serviços para empresas brasileiras...</p>
-                        <div style="margin-top: 15px;">
-                            <a href="https://valor.globo.com/empresas/tecnologia/noticia/2024/08/08/aws-anuncia-investimento-de-r-10-bilhoes-em-nova-regiao-no-brasil.ghtml" target="_blank" class="btn btn-primary btn-sm">Leia a notícia completa</a>
+                        <div class="mbr-article__content" style="padding: 20px; display: flex; flex-direction: column;">
+                            <h4>Transformação Digital: O Futuro das Empresas</h4>
+                            <p class="mbr-article__meta text-muted">Driver Tecnologia • Hoje</p>
+                            <p style="flex-grow: 1;">Como a transformação digital está revolucionando a forma como as empresas operam e se relacionam com seus clientes. Descubra as principais tendências e estratégias para 2025...</p>
+                            <div style="margin-top: 15px;">
+                                <button class="btn btn-primary btn-sm" onclick="openArticleModal('transformacao-digital')">Leia mais</button>
+                            </div>
                         </div>
-                    </div>
-                </article>
-            </div>
-            
-            <div class="col-md-6 col-sm-12" style="margin-bottom: 40px;">
-                <article class="mbr-article" style="background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; height: 100%;">
-                    <div class="mbr-article__img">
-                        <img src="assets/images/consultoria-1140x597.png" alt="Transformação Digital" class="img-responsive">
-                    </div>
-                    <div class="mbr-article__content" style="padding: 20px; display: flex; flex-direction: column;">
-                        <h4>85% das empresas brasileiras aceleram transformação digital</h4>
-                        <p class="mbr-article__meta text-muted">Fonte: CIO Brasil • 5 de Agosto, 2025</p>
-                        <p style="flex-grow: 1;">Pesquisa da PwC revela que 85% das empresas brasileiras aceleraram processos de transformação digital pós-pandemia. Cloud computing, automação e analytics lideram os investimentos em tecnologia...</p>
-                        <div style="margin-top: 15px;">
-                            <a href="https://cio.com.br/85-das-empresas-brasileiras-aceleram-transformacao-digital/" target="_blank" class="btn btn-primary btn-sm">Leia a notícia completa</a>
+                    </article>
+                </div>
+                
+                <div class="col-md-6 col-sm-12" style="margin-bottom: 40px;">
+                    <article class="mbr-article" style="background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; height: 100%;">
+                        <div class="mbr-article__img">
+                            <img src="assets/images/cyber-security-illustration-1-600x600.png" alt="Segurança Cibernética" class="img-responsive">
                         </div>
-                    </div>
-                </article>
+                        <div class="mbr-article__content" style="padding: 20px; display: flex; flex-direction: column;">
+                            <h4>Segurança da Informação: Protegendo seu Negócio</h4>
+                            <p class="mbr-article__meta text-muted">Driver Tecnologia • Hoje</p>
+                            <p style="flex-grow: 1;">Com o aumento dos ciberataques, proteger os dados da sua empresa nunca foi tão importante. Conheça as melhores práticas de segurança cibernética...</p>
+                            <div style="margin-top: 15px;">
+                                <button class="btn btn-primary btn-sm" onclick="openArticleModal('seguranca-informacao')">Leia mais</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="col-md-6 col-sm-12" style="margin-bottom: 40px;">
+                    <article class="mbr-article" style="background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; height: 100%;">
+                        <div class="mbr-article__img">
+                            <img src="assets/images/consultoria-ti-450x450.png" alt="Cloud Computing" class="img-responsive">
+                        </div>
+                        <div class="mbr-article__content" style="padding: 20px; display: flex; flex-direction: column;">
+                            <h4>Cloud Computing: Escalabilidade e Eficiência</h4>
+                            <p class="mbr-article__meta text-muted">Driver Tecnologia • Hoje</p>
+                            <p style="flex-grow: 1;">Descubra como a computação em nuvem pode reduzir custos e aumentar a produtividade da sua empresa. AWS, Azure e Google Cloud em comparação...</p>
+                            <div style="margin-top: 15px;">
+                                <button class="btn btn-primary btn-sm" onclick="openArticleModal('cloud-computing')">Leia mais</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="col-md-6 col-sm-12" style="margin-bottom: 40px;">
+                    <article class="mbr-article" style="background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; height: 100%;">
+                        <div class="mbr-article__img">
+                            <img src="assets/images/consultoria-1140x597.png" alt="Inteligência Artificial" class="img-responsive">
+                        </div>
+                        <div class="mbr-article__content" style="padding: 20px; display: flex; flex-direction: column;">
+                            <h4>Inteligência Artificial nos Negócios</h4>
+                            <p class="mbr-article__meta text-muted">Driver Tecnologia • Hoje</p>
+                            <p style="flex-grow: 1;">Como a IA está transformando processos empresariais e criando novas oportunidades de negócio. Machine Learning, automação e analytics...</p>
+                            <div style="margin-top: 15px;">
+                                <button class="btn btn-primary btn-sm" onclick="openArticleModal('inteligencia-artificial')">Leia mais</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
         </div>
         
@@ -202,6 +217,695 @@
 <script src="assets/web/assets/bootstrap3-migrate/bootstrap.min.js"></script>
 <script src="assets/smooth-scroll/smooth-scroll.js"></script>
 <script src="assets/mobirise/js/script.js"></script>
+
+<!-- Modal para exibir artigos completos -->
+<div class="modal fade" id="articleModal" tabindex="-1" role="dialog" aria-labelledby="articleModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="articleModalLabel">Artigo</h4>
+            </div>
+            <div class="modal-body" id="articleModalBody">
+                <!-- Conteúdo do artigo será carregado aqui -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border: 0.25rem solid transparent;
+    border-top: 0.25rem solid #e25454;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.article-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.mbr-article__img {
+    height: 200px !important;
+    overflow: hidden !important;
+    position: relative;
+}
+
+.mbr-article__img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+}
+
+.mbr-article__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.article-description {
+    flex-grow: 1;
+}
+
+/* Cards em grid uniforme */
+.blog-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.blog-grid .col-md-6 {
+    display: flex;
+    margin-bottom: 30px;
+    padding: 0 15px;
+}
+
+@media (min-width: 992px) {
+    .blog-grid .col-md-6:nth-child(2n+1) {
+        clear: left;
+    }
+}
+
+.modal-lg {
+    max-width: 900px;
+}
+
+.modal-body img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+</style>
+
+<script>
+// Artigos locais da Driver Tecnologia
+const localArticles = {
+    'transformacao-digital': {
+        title: 'Transformação Digital: O Futuro das Empresas',
+        content: `
+            <img src="assets/images/cloud.webp" alt="Transformação Digital" class="img-responsive">
+            <h2>A Era da Transformação Digital</h2>
+            <p>A transformação digital deixou de ser uma opção para se tornar uma necessidade fundamental para empresas que desejam permanecer competitivas no mercado atual. Na Driver Tecnologia, temos acompanhado de perto essa evolução e ajudado nossos clientes a navegar por essa jornada transformadora.</p>
+            
+            <h3>O Que É Transformação Digital?</h3>
+            <p>Transformação digital é mais do que simplesmente adotar novas tecnologias. É uma mudança cultural que requer que as organizações questionem constantemente o status quo, experimentem frequentemente e se sintam confortáveis com o fracasso.</p>
+            
+            <h3>Principais Pilares da Transformação</h3>
+            <ul>
+                <li><strong>Cloud Computing:</strong> Migração para a nuvem para maior escalabilidade e flexibilidade</li>
+                <li><strong>Automação de Processos:</strong> Otimização de workflows e redução de tarefas manuais</li>
+                <li><strong>Analytics e Big Data:</strong> Tomada de decisões baseada em dados</li>
+                <li><strong>Experiência do Cliente:</strong> Foco na jornada e satisfação do usuário</li>
+                <li><strong>Segurança Cibernética:</strong> Proteção robusta contra ameaças digitais</li>
+            </ul>
+            
+            <h3>Como a Driver Pode Ajudar</h3>
+            <p>Com mais de 30 anos de experiência, oferecemos consultoria estratégica para sua transformação digital:</p>
+            <ul>
+                <li>Avaliação da maturidade digital atual</li>
+                <li>Desenvolvimento de roadmap personalizado</li>
+                <li>Implementação de soluções em nuvem</li>
+                <li>Treinamento e capacitação de equipes</li>
+                <li>Suporte contínuo e otimização</li>
+            </ul>
+            
+            <p><strong>Entre em contato conosco</strong> e descubra como podemos acelerar a transformação digital da sua empresa!</p>
+        `
+    },
+    'seguranca-informacao': {
+        title: 'Segurança da Informação: Protegendo seu Negócio',
+        content: `
+            <img src="assets/images/cyber-security-illustration-1-600x600.png" alt="Segurança da Informação" class="img-responsive">
+            <h2>Segurança Cibernética: Um Imperativo Empresarial</h2>
+            <p>Em um mundo cada vez mais conectado, a segurança da informação tornou-se crítica para a sobrevivência dos negócios. Ataques cibernéticos podem resultar em perdas financeiras devastadoras, danos à reputação e interrupção das operações.</p>
+            
+            <h3>Principais Ameaças Atuais</h3>
+            <ul>
+                <li><strong>Ransomware:</strong> Sequestro de dados com exigência de resgate</li>
+                <li><strong>Phishing:</strong> Engenharia social para roubo de credenciais</li>
+                <li><strong>Ataques DDoS:</strong> Sobrecarga de sistemas para causar indisponibilidade</li>
+                <li><strong>Malware:</strong> Software malicioso que compromete sistemas</li>
+                <li><strong>Vazamento de Dados:</strong> Exposição não autorizada de informações sensíveis</li>
+            </ul>
+            
+            <h3>Estratégias de Proteção</h3>
+            <p>A Driver Tecnologia implementa uma abordagem multicamadas para segurança:</p>
+            
+            <h4>1. Prevenção</h4>
+            <ul>
+                <li>Firewall avançado e sistemas de detecção de intrusão</li>
+                <li>Antivírus corporativo e proteção endpoint</li>
+                <li>Políticas de segurança e controle de acesso</li>
+                <li>Treinamento de colaboradores</li>
+            </ul>
+            
+            <h4>2. Detecção</h4>
+            <ul>
+                <li>Monitoramento 24/7 de atividades suspeitas</li>
+                <li>Análise comportamental e inteligência artificial</li>
+                <li>Logs centralizados e análise forense</li>
+                <li>Alertas em tempo real</li>
+            </ul>
+            
+            <h4>3. Resposta</h4>
+            <ul>
+                <li>Planos de resposta a incidentes</li>
+                <li>Isolamento e contenção de ameaças</li>
+                <li>Recuperação de dados e sistemas</li>
+                <li>Análise pós-incidente e melhorias</li>
+            </ul>
+            
+            <h3>Compliance e Regulamentações</h3>
+            <p>Ajudamos sua empresa a estar em conformidade com:</p>
+            <ul>
+                <li>LGPD (Lei Geral de Proteção de Dados)</li>
+                <li>ISO 27001 (Gestão de Segurança da Informação)</li>
+                <li>GDPR (para empresas com operações na Europa)</li>
+                <li>Regulamentações setoriais específicas</li>
+            </ul>
+            
+            <p><strong>Proteja seu negócio hoje mesmo!</strong> Entre em contato para uma avaliação gratuita de segurança.</p>
+        `
+    },
+    'cloud-computing': {
+        title: 'Cloud Computing: Escalabilidade e Eficiência',
+        content: `
+            <img src="assets/images/consultoria-ti-450x450.png" alt="Cloud Computing" class="img-responsive">
+            <h2>A Revolução da Computação em Nuvem</h2>
+            <p>A computação em nuvem transformou fundamentalmente a forma como as empresas gerenciam sua infraestrutura de TI. Na Driver Tecnologia, somos especialistas em ajudar organizações a migrar para a nuvem e otimizar seus ambientes cloud.</p>
+            
+            <h3>Vantagens do Cloud Computing</h3>
+            <ul>
+                <li><strong>Redução de Custos:</strong> Elimina gastos com hardware e datacenter próprio</li>
+                <li><strong>Escalabilidade:</strong> Recursos ajustáveis conforme demanda</li>
+                <li><strong>Flexibilidade:</strong> Acesso a recursos de qualquer lugar</li>
+                <li><strong>Recuperação de Desastres:</strong> Backup e recuperação automatizados</li>
+                <li><strong>Inovação Acelerada:</strong> Deploy rápido de novas soluções</li>
+                <li><strong>Foco no Core Business:</strong> Menos tempo com infraestrutura</li>
+            </ul>
+            
+            <h3>Principais Provedores Cloud</h3>
+            
+            <h4>Amazon Web Services (AWS)</h4>
+            <ul>
+                <li>Líder de mercado com maior portfólio de serviços</li>
+                <li>Excelente para grandes corporações</li>
+                <li>Forte em machine learning e analytics</li>
+                <li>Presença global robusta</li>
+            </ul>
+            
+            <h4>Microsoft Azure</h4>
+            <ul>
+                <li>Integração perfeita com produtos Microsoft</li>
+                <li>Forte em ambientes híbridos</li>
+                <li>Excelente para empresas com Windows Server</li>
+                <li>Boas opções de DevOps</li>
+            </ul>
+            
+            <h4>Google Cloud Platform (GCP)</h4>
+            <ul>
+                <li>Forte em Big Data e analytics</li>
+                <li>Excelente para desenvolvimento de apps</li>
+                <li>Preços competitivos</li>
+                <li>Inovação em IA e machine learning</li>
+            </ul>
+            
+            <h3>Estratégias de Migração</h3>
+            <p>Oferecemos diferentes abordagens baseadas nas necessidades do cliente:</p>
+            
+            <h4>1. Lift and Shift</h4>
+            <p>Migração direta dos sistemas existentes para a nuvem com mínimas modificações.</p>
+            
+            <h4>2. Replatforming</h4>
+            <p>Otimização dos sistemas durante a migração para aproveitar recursos cloud.</p>
+            
+            <h4>3. Refactoring</h4>
+            <p>Reestruturação completa para arquitetura cloud-native.</p>
+            
+            <h4>4. Hybrid Cloud</h4>
+            <p>Combinação de infraestrutura on-premises e cloud para máxima flexibilidade.</p>
+            
+            <h3>Serviços da Driver para Cloud</h3>
+            <ul>
+                <li>Avaliação e planejamento de migração</li>
+                <li>Implementação e configuração</li>
+                <li>Otimização de custos</li>
+                <li>Monitoramento e suporte 24/7</li>
+                <li>Treinamento de equipes</li>
+                <li>Governança e compliance</li>
+            </ul>
+            
+            <p><strong>Inicie sua jornada para a nuvem!</strong> Fale conosco para uma consultoria personalizada.</p>
+        `
+    },
+    'inteligencia-artificial': {
+        title: 'Inteligência Artificial nos Negócios',
+        content: `
+            <img src="assets/images/consultoria-1140x597.png" alt="Inteligência Artificial" class="img-responsive">
+            <h2>IA: Transformando Processos e Criando Oportunidades</h2>
+            <p>A Inteligência Artificial está revolucionando a forma como as empresas operam, automatizando processos, melhorando a tomada de decisões e criando novas oportunidades de negócio. Na Driver Tecnologia, ajudamos empresas a implementar soluções de IA de forma estratégica e eficiente.</p>
+            
+            <h3>Aplicações Práticas de IA nos Negócios</h3>
+            
+            <h4>1. Atendimento ao Cliente</h4>
+            <ul>
+                <li>Chatbots inteligentes para suporte 24/7</li>
+                <li>Análise de sentimento em tempo real</li>
+                <li>Personalização de atendimento</li>
+                <li>Resolução automática de problemas comuns</li>
+            </ul>
+            
+            <h4>2. Análise de Dados e Previsões</h4>
+            <ul>
+                <li>Análise preditiva de vendas</li>
+                <li>Detecção de fraudes</li>
+                <li>Otimização de preços dinâmica</li>
+                <li>Análise de comportamento do cliente</li>
+            </ul>
+            
+            <h4>3. Automação de Processos</h4>
+            <ul>
+                <li>RPA (Robotic Process Automation)</li>
+                <li>Processamento de documentos</li>
+                <li>Classificação automática de dados</li>
+                <li>Aprovações inteligentes</li>
+            </ul>
+            
+            <h4>4. Marketing e Vendas</h4>
+            <ul>
+                <li>Segmentação inteligente de clientes</li>
+                <li>Recomendações personalizadas</li>
+                <li>Otimização de campanhas</li>
+                <li>Lead scoring automático</li>
+            </ul>
+            
+            <h3>Tecnologias de IA que Implementamos</h3>
+            
+            <h4>Machine Learning</h4>
+            <p>Algoritmos que aprendem e melhoram automaticamente através da experiência, sem serem explicitamente programados.</p>
+            
+            <h4>Natural Language Processing (NLP)</h4>
+            <p>Tecnologia que permite às máquinas entender, interpretar e responder à linguagem humana.</p>
+            
+            <h4>Computer Vision</h4>
+            <p>Capacidade de analisar e interpretar imagens e vídeos para extrair informações úteis.</p>
+            
+            <h4>Deep Learning</h4>
+            <p>Redes neurais profundas que simulam o funcionamento do cérebro humano para resolver problemas complexos.</p>
+            
+            <h3>Metodologia de Implementação</h3>
+            
+            <h4>Fase 1: Diagnóstico</h4>
+            <ul>
+                <li>Análise dos processos atuais</li>
+                <li>Identificação de oportunidades</li>
+                <li>Avaliação de dados disponíveis</li>
+                <li>Definição de objetivos e KPIs</li>
+            </ul>
+            
+            <h4>Fase 2: Prova de Conceito</h4>
+            <ul>
+                <li>Desenvolvimento de protótipo</li>
+                <li>Teste com dados reais</li>
+                <li>Validação de resultados</li>
+                <li>Refinamento da solução</li>
+            </ul>
+            
+            <h4>Fase 3: Implementação</h4>
+            <ul>
+                <li>Desenvolvimento da solução completa</li>
+                <li>Integração com sistemas existentes</li>
+                <li>Treinamento de usuários</li>
+                <li>Go-live e monitoramento</li>
+            </ul>
+            
+            <h4>Fase 4: Otimização</h4>
+            <ul>
+                <li>Monitoramento contínuo</li>
+                <li>Ajustes e melhorias</li>
+                <li>Expansão para outros processos</li>
+                <li>Evolução da solução</li>
+            </ul>
+            
+            <h3>Benefícios Mensuráveis</h3>
+            <ul>
+                <li><strong>Redução de custos operacionais em até 40%</strong></li>
+                <li><strong>Aumento de produtividade em até 60%</strong></li>
+                <li><strong>Melhoria na precisão de previsões em até 85%</strong></li>
+                <li><strong>Redução de erros humanos em até 90%</strong></li>
+                <li><strong>Aumento na satisfação do cliente em até 50%</strong></li>
+            </ul>
+            
+            <p><strong>Transforme seu negócio com IA!</strong> Entre em contato para descobrir como a inteligência artificial pode revolucionar sua empresa.</p>
+        `
+    }
+};
+
+// Função para abrir modal com artigo
+function openArticleModal(articleId) {
+    const article = localArticles[articleId];
+    if (article) {
+        document.getElementById('articleModalLabel').textContent = article.title;
+        document.getElementById('articleModalBody').innerHTML = article.content;
+        $('#articleModal').modal('show');
+    }
+}
+
+// Função para carregar notícias de feeds RSS/APIs
+async function loadTechNews() {
+    const newsContainer = document.getElementById('blog-content');
+    const loadingMessage = document.getElementById('loading-message');
+    const errorMessage = document.getElementById('error-message');
+    
+    try {
+        // Carrega apenas notícias do IT Forum - especializado em TI empresarial
+        const rssFeeds = [
+            'https://rss2json.com/api.json?rss_url=https://www.itforum.com.br/feed/'
+        ];
+        
+        let allNews = [];
+        
+        // Carrega notícias de múltiplos feeds
+        for (let feedUrl of rssFeeds) {
+            try {
+                const response = await fetch(feedUrl);
+                const data = await response.json();
+                
+                if (data.status === 'ok' && data.items) {
+                    // Filtra notícias relevantes para TI empresarial com filtros mais específicos
+                    const relevantNews = data.items.filter(item => {
+                        const content = (item.title + ' ' + item.description).toLowerCase();
+                        
+                        // Palavras-chave altamente relevantes (peso maior)
+                        const highRelevanceKeywords = [
+                            'cloud computing', 'computação em nuvem', 'azure', 'aws', 'google cloud',
+                            'transformação digital', 'digitalização', 'modernização',
+                            'cibersegurança', 'segurança cibernética', 'ransomware', 'firewall',
+                            'outsourcing', 'terceirização', 'consultoria ti',
+                            'erp', 'crm', 'sistema de gestão',
+                            'backup', 'recuperação de dados', 'disaster recovery',
+                            'infraestrutura ti', 'data center', 'servidor',
+                            'automação empresarial', 'workflow', 'processo automatizado',
+                            'business intelligence', 'analytics empresarial', 'big data empresarial',
+                            'compliance', 'governança ti', 'auditoria sistemas'
+                        ];
+                        
+                        // Palavras-chave moderadamente relevantes
+                        const mediumRelevanceKeywords = [
+                            'inteligência artificial', 'machine learning', 'ia empresarial',
+                            'software empresarial', 'aplicação corporativa',
+                            'banco de dados', 'database', 'sql server', 'oracle',
+                            'virtualização', 'containers', 'docker', 'kubernetes',
+                            'rede corporativa', 'vpn', 'conectividade empresarial',
+                            'migração de sistemas', 'atualização de software',
+                            'monitoramento ti', 'performance sistema',
+                            'tecnologia corporativa', 'solução empresarial'
+                        ];
+                        
+                        // Termos que devem estar presentes junto com tecnologia
+                        const businessContext = [
+                            'empresa', 'negócio', 'corporativo', 'organização',
+                            'produtividade', 'eficiência', 'custos', 'roi',
+                            'gestão', 'estratégia', 'implementação'
+                        ];
+                        
+                        // Verifica se tem palavras de alta relevância
+                        const hasHighRelevance = highRelevanceKeywords.some(keyword => 
+                            content.includes(keyword)
+                        );
+                        
+                        // Verifica se tem palavras de média relevância + contexto empresarial
+                        const hasMediumRelevance = mediumRelevanceKeywords.some(keyword => 
+                            content.includes(keyword)
+                        ) && businessContext.some(context => content.includes(context));
+                        
+                        // Exclui assuntos não relacionados ao B2B
+                        const excludeKeywords = [
+                            'jogos', 'games', 'gaming', 'console',
+                            'smartphone pessoal', 'celular pessoal', 'app pessoal',
+                            'redes sociais pessoais', 'influencer', 'youtuber',
+                            'streaming pessoal', 'netflix', 'spotify',
+                            'criptomoeda', 'bitcoin', 'nft',
+                            'hardware pessoal', 'placa de vídeo gamer',
+                            'iphone pessoal', 'android pessoal'
+                        ];
+                        
+                        const hasExcludedContent = excludeKeywords.some(keyword => 
+                            content.includes(keyword)
+                        );
+                        
+                        return (hasHighRelevance || hasMediumRelevance) && !hasExcludedContent;
+                    }).slice(0, 8); // Máximo 8 notícias do IT Forum
+                    
+                    allNews = allNews.concat(relevantNews);
+                }
+            } catch (error) {
+                console.warn('Erro ao carregar feed:', feedUrl, error);
+            }
+        }
+        
+        // Se conseguiu carregar notícias dos feeds
+        if (allNews.length > 0) {
+            // Ordena por data e pega os 8 mais recentes
+            allNews.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+            allNews = allNews.slice(0, 8);
+            
+            let newsHtml = '';
+            allNews.forEach((news, index) => {
+                // Extrai imagem da notícia
+                let imageUrl = getImageFromContent(news);
+                
+                // Imagens padrão caso não encontre
+                if (!imageUrl) {
+                    const defaultImages = [
+                        'assets/images/cloud.webp',
+                        'assets/images/cyber-security-illustration-1-600x600.png',
+                        'assets/images/consultoria-ti-450x450.png',
+                        'assets/images/consultoria-1140x597.png'
+                    ];
+                    imageUrl = defaultImages[index % defaultImages.length];
+                }
+                
+                // Limpa e trunca descrição
+                const cleanDescription = cleanHtml(news.description || news.content || '').substring(0, 150) + '...';
+                
+                // Formata data
+                const publishDate = formatDate(news.pubDate);
+                
+                // Extrai nome da fonte
+                const sourceName = getSourceName(news.link);
+                
+                newsHtml += `
+                    <div class="col-md-6 col-sm-12">
+                        <article class="mbr-article article-card" style="background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                            <div class="mbr-article__img">
+                                <img src="${imageUrl}" alt="${news.title}" onerror="this.src='assets/images/cloud.webp'">
+                            </div>
+                            <div class="mbr-article__content" style="padding: 20px;">
+                                <h4 style="line-height: 1.3; margin-bottom: 10px; min-height: 60px; display: flex; align-items: center;">${news.title}</h4>
+                                <p class="mbr-article__meta text-muted" style="margin-bottom: 15px;">Fonte: ${sourceName} • ${publishDate}</p>
+                                <p class="article-description" style="line-height: 1.5; margin-bottom: 20px;">${cleanDescription}</p>
+                                <div style="margin-top: auto;">
+                                    <a href="${news.link}" target="_blank" class="btn btn-primary btn-sm">Leia a notícia completa</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                `;
+            });
+            
+            newsContainer.innerHTML = newsHtml;
+            loadingMessage.style.display = 'none';
+            newsContainer.style.display = 'block';
+            
+        } else {
+            throw new Error('Nenhuma notícia relevante encontrada');
+        }
+        
+    } catch (error) {
+        console.error('Erro ao carregar notícias:', error);
+        loadFallbackNews();
+    }
+}
+
+// Função para extrair imagem do conteúdo da notícia
+function getImageFromContent(news) {
+    // Tenta pegar imagem de diferentes campos
+    if (news.enclosure && news.enclosure.link) {
+        return news.enclosure.link;
+    }
+    
+    if (news.thumbnail) {
+        return news.thumbnail;
+    }
+    
+    // Procura por imagens no conteúdo HTML
+    const content = news.content || news.description || '';
+    const imgRegex = /<img[^>]+src\s*=\s*['\"]([^'\"]+)['\"][^>]*>/i;
+    const match = content.match(imgRegex);
+    
+    if (match && match[1]) {
+        return match[1];
+    }
+    
+    // Procura por meta tags de imagem
+    const ogImageRegex = /og:image[^>]*content\s*=\s*['\"]([^'\"]+)['\"][^>]*/i;
+    const ogMatch = content.match(ogImageRegex);
+    
+    if (ogMatch && ogMatch[1]) {
+        return ogMatch[1];
+    }
+    
+    return null;
+}
+
+// Função para limpar HTML e pegar só o texto
+function cleanHtml(html) {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || '';
+}
+
+// Função para formatar data
+function formatDate(dateString) {
+    try {
+        const date = new Date(dateString);
+        const now = new Date();
+        const diffTime = Math.abs(now - date);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        
+        if (diffDays === 1) {
+            return 'Ontem';
+        } else if (diffDays <= 7) {
+            return `${diffDays} dias atrás`;
+        } else {
+            return date.toLocaleDateString('pt-BR');
+        }
+    } catch (error) {
+        return 'Recente';
+    }
+}
+
+// Função para extrair nome da fonte do link
+function getSourceName(link) {
+    try {
+        const url = new URL(link);
+        const hostname = url.hostname.replace('www.', '');
+        
+        const sourceMap = {
+            'techcrunch.com': 'TechCrunch',
+            'cio.com.br': 'CIO Brasil',
+            'computerworld.com.br': 'Computerworld Brasil',
+            'itforum.com.br': 'IT Forum',
+            'zdnet.com': 'ZDNet',
+            'infomoney.com.br': 'InfoMoney Tech',
+            'canaltech.com.br': 'Canaltech',
+            'olhardigital.com.br': 'Olhar Digital',
+            'tecmundo.com.br': 'TecMundo',
+            'valor.globo.com': 'Valor Econômico',
+            'convergenciadigital.com.br': 'Convergência Digital',
+            'baguete.com.br': 'Baguete'
+        };
+        
+        return sourceMap[hostname] || hostname;
+    } catch (error) {
+        return 'Tech News';
+    }
+}
+
+// Função de fallback com notícias estáticas
+function loadFallbackNews() {
+    const newsContainer = document.getElementById('blog-content');
+    const loadingMessage = document.getElementById('loading-message');
+    const errorMessage = document.getElementById('error-message');
+    
+    const fallbackNews = [
+        {
+            title: "IT Forum: Tendências de TI Empresarial para 2025",
+            summary: "Análise das principais tendências tecnológicas que impactarão empresas brasileiras, incluindo cloud computing, automação e cibersegurança...",
+            source: "IT Forum",
+            date: "Hoje",
+            link: "https://itforum.com.br",
+            image: "assets/images/cloud.webp"
+        },
+        {
+            title: "Gestão de TI: Como otimizar custos sem perder qualidade",
+            summary: "Estratégias para CIOs reduzirem gastos com tecnologia mantendo a eficiência operacional e a segurança dos dados empresariais...",
+            source: "IT Forum",
+            date: "Ontem",
+            link: "https://itforum.com.br",
+            image: "assets/images/consultoria-ti-450x450.png"
+        },
+        {
+            title: "Transformação Digital: Cases de sucesso no Brasil",
+            summary: "Empresas brasileiras compartilham experiências de digitalização bem-sucedidas, revelando desafios superados e benefícios alcançados...",
+            source: "IT Forum",
+            date: "2 dias atrás",
+            link: "https://itforum.com.br",
+            image: "assets/images/cyber-security-illustration-1-600x600.png"
+        },
+        {
+            title: "Infraestrutura em Nuvem: Guia para migração segura",
+            summary: "Passo a passo para migrar sistemas críticos para a nuvem sem interromper operações, com foco em segurança e governança...",
+            source: "IT Forum",
+            date: "3 dias atrás",
+            link: "https://itforum.com.br",
+            image: "assets/images/consultoria-1140x597.png"
+        }
+    ];
+    
+    let newsHtml = '';
+    fallbackNews.forEach(news => {
+        newsHtml += `
+            <div class="col-md-6 col-sm-12">
+                <article class="mbr-article article-card" style="background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                    <div class="mbr-article__img">
+                        <img src="${news.image}" alt="${news.title}">
+                    </div>
+                    <div class="mbr-article__content" style="padding: 20px;">
+                        <h4 style="line-height: 1.3; margin-bottom: 10px; min-height: 60px; display: flex; align-items: center;">${news.title}</h4>
+                        <p class="mbr-article__meta text-muted" style="margin-bottom: 15px;">Fonte: ${news.source} • ${news.date}</p>
+                        <p class="article-description" style="line-height: 1.5; margin-bottom: 20px;">${news.summary}</p>
+                        <div style="margin-top: auto;">
+                            <a href="${news.link}" target="_blank" class="btn btn-primary btn-sm">Leia a notícia completa</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        `;
+    });
+    
+    newsContainer.innerHTML = newsHtml;
+    loadingMessage.style.display = 'none';
+    newsContainer.style.display = 'block';
+}
+
+// Carrega as notícias quando a página é carregada
+document.addEventListener('DOMContentLoaded', function() {
+    loadTechNews();
+});
+</script>
 
 </body>
 </html>

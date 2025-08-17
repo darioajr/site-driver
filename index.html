@@ -34,8 +34,27 @@
     function applyHeaderStyles() {
       var header = document.getElementById("header4-0");
       if (header) {
-        header.classList.remove("mbr-section--full-height");
-        header.style.cssText += "; height: 50vh !important; min-height: 400px !important; max-height: 50vh !important;";
+        // Detecta se é dispositivo móvel
+        var isMobile = window.innerWidth <= 768;
+        var isPhone = window.innerWidth <= 430;
+        var isSmallPhone = window.innerWidth <= 375;
+        
+        if (isMobile) {
+          // Remove a classe que força 100vh
+          header.classList.remove("mbr-section--full-height");
+          
+          // Aplica altura customizada baseada no dispositivo
+          if (isSmallPhone) {
+            header.style.cssText += "; height: 80vh !important; min-height: 80vh !important; max-height: 80vh !important;";
+          } else if (isPhone) {
+            header.style.cssText += "; height: 75vh !important; min-height: 75vh !important; max-height: 75vh !important;";
+          } else {
+            header.style.cssText += "; height: 70vh !important; min-height: 70vh !important; max-height: 70vh !important;";
+          }
+        } else {
+          // Desktop mantém comportamento original
+          header.style.cssText += "; height: 50vh !important; min-height: 400px !important; max-height: 50vh !important;";
+        }
       }
       
       var title = document.querySelector("#header4-0 .mbr-hero__text");
@@ -51,6 +70,9 @@
     
     // Executa apenas uma vez quando a página carrega
     window.addEventListener("load", applyHeaderStyles);
+    
+    // Reaplica quando a tela é redimensionada
+    window.addEventListener("resize", applyHeaderStyles);
 
   </script>
   
@@ -382,6 +404,88 @@
     }, 2000); // Verificação a cada 2 segundos
   });
   </script>
+  
+  <style>
+  /* Media queries para dispositivos móveis - Header responsivo */
+  @media (max-width: 768px) {
+    #header4-0.mbr-section--full-height {
+      height: 70vh !important;
+      min-height: 70vh !important;
+      max-height: 70vh !important;
+    }
+    
+    #header4-0 .mbr-section__container {
+      top: 65% !important;
+      padding: 15px 15px 25px 15px !important;
+    }
+    
+    #header4-0 .mbr-hero__text {
+      font-size: 1.4rem !important;
+      white-space: normal !important;
+      margin-bottom: 20px !important;
+      line-height: 1.2 !important;
+      margin-top: 0 !important;
+    }
+    
+    #header4-0 .mbr-hero__subtext {
+      font-size: 1.2rem !important;
+      line-height: 1.3 !important;
+      margin-bottom: 30px !important;
+    }
+  }
+  
+  /* iPhone 14 e dispositivos similares */
+  @media (max-width: 430px) {
+    #header4-0.mbr-section--full-height {
+      height: 75vh !important;
+      min-height: 75vh !important;
+      max-height: 75vh !important;
+    }
+    
+    #header4-0 .mbr-section__container {
+      top: 62% !important;
+      padding: 10px 20px 30px 20px !important;
+    }
+    
+    #header4-0 .mbr-hero__text {
+      font-size: 1.2rem !important;
+      white-space: normal !important;
+      margin-bottom: 15px !important;
+      line-height: 1.1 !important;
+      margin-top: 0 !important;
+    }
+    
+    #header4-0 .mbr-hero__subtext {
+      font-size: 1rem !important;
+      line-height: 1.3 !important;
+      margin-bottom: 35px !important;
+    }
+  }
+  
+  /* iPhone 14 Pro Max e telas muito pequenas */
+  @media (max-width: 375px) {
+    #header4-0.mbr-section--full-height {
+      height: 80vh !important;
+      min-height: 80vh !important;
+      max-height: 80vh !important;
+    }
+    
+    #header4-0 .mbr-section__container {
+      top: 60% !important;
+      padding: 5px 15px 35px 15px !important;
+    }
+    
+    #header4-0 .mbr-hero__text {
+      font-size: 1.1rem !important;
+      margin-top: 0 !important;
+    }
+    
+    #header4-0 .mbr-hero__subtext {
+      font-size: 0.9rem !important;
+      margin-bottom: 40px !important;
+    }
+  }
+  </style>
   
   
   
