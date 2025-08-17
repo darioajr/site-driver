@@ -114,32 +114,33 @@
             <p class="mbr-header__subtext">Encontre a oportunidade perfeita para sua carreira</p>
         </div>
         
-        <div class="row">
-            <!-- Desenvolvedor Java -->
-            <div class="col-md-6" style="margin-bottom: 30px;">
-                <div class="job-card">
-                    <div class="job-header">
-                        <h3>Desenvolvedor Java Sênior</h3>
-                        <span class="job-type">Full-time</span>
+        <div class="job-cards-container">
+            <div class="row">
+                <!-- Desenvolvedor Java -->
+                <div class="col-md-6" style="margin-bottom: 30px;">
+                    <div class="job-card">
+                        <div class="job-header">
+                            <h3>Desenvolvedor Java Sênior</h3>
+                            <span class="job-type">Full-time</span>
+                        </div>
+                        <div class="job-details">
+                            <p><strong>📍 Localização:</strong> Blumenau, SC (Remoto)</p>
+                            <p><strong>💼 Experiência:</strong> 4+ anos</p>
+                            <p><strong>💰 Salário:</strong> R$ 8.000 - R$ 15.000</p>
+                        </div>
+                        <div class="job-requirements">
+                            <h5>Requisitos:</h5>
+                            <ul>
+                                <li>Java 8+, Spring Boot, Spring Framework</li>
+                                <li>Experiência com APIs RESTful</li>
+                                <li>Banco de dados relacionais (MySQL, PostgreSQL)</li>
+                                <li>Git, Docker, metodologias ágeis</li>
+                                <li>Conhecimento em AWS/GCP/Azure (diferencial)</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary btn-sm apply-btn" data-job="java-senior">Candidatar-se</button>
                     </div>
-                    <div class="job-details">
-                        <p><strong>📍 Localização:</strong> Blumenau, SC (Remoto)</p>
-                        <p><strong>💼 Experiência:</strong> 4+ anos</p>
-                        <p><strong>💰 Salário:</strong> R$ 8.000 - R$ 15.000</p>
-                    </div>
-                    <div class="job-requirements">
-                        <h5>Requisitos:</h5>
-                        <ul>
-                            <li>Java 8+, Spring Boot, Spring Framework</li>
-                            <li>Experiência com APIs RESTful</li>
-                            <li>Banco de dados relacionais (MySQL, PostgreSQL)</li>
-                            <li>Git, Docker, metodologias ágeis</li>
-                            <li>Conhecimento em AWS/GCP/Azure (diferencial)</li>
-                        </ul>
-                    </div>
-                    <button class="btn btn-primary btn-sm apply-btn" data-job="java-senior">Candidatar-se</button>
                 </div>
-            </div>
             
             <!-- Desenvolvedor C# -->
             <div class="col-md-6" style="margin-bottom: 30px;">
@@ -220,6 +221,7 @@
                     <button class="btn btn-primary btn-sm apply-btn" data-job="tech-lead">Candidatar-se</button>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </section>
@@ -310,7 +312,7 @@
                 <h2 class="text-white">Não encontrou a vaga ideal?</h2>
                 <p class="text-white lead">Envie seu currículo mesmo assim! Estamos sempre em busca de novos talentos.</p>
                 <div style="margin-top: 30px;">
-                    <a href="contato.html" class="btn btn-lg" style="background-color: #e25454; color: white; border: none; margin-right: 15px;">Envie seu Currículo</a>
+                    <button class="btn btn-lg apply-btn" style="background-color: #e25454; color: white; border: none; margin-right: 15px;" onclick="$('#formulario-candidatura').show(); $('html, body').animate({scrollTop: $('#formulario-candidatura').offset().top - 100}, 800);">Envie seu Currículo</button>
                     <a href="sobre.html" class="btn btn-lg btn-outline" style="border: 2px solid white; color: white;">Conheça a Driver</a>
                 </div>
             </div>
@@ -342,6 +344,14 @@
     padding: 25px;
     height: 100%;
     transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure equal height for job cards container */
+.job-cards-row {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .job-card:hover {
@@ -392,6 +402,11 @@
     font-size: 0.95rem;
 }
 
+.job-requirements {
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
 .job-requirements h5 {
     color: #2c3e50;
     margin-bottom: 10px;
@@ -418,6 +433,23 @@
 
 .apply-btn:hover {
     background: #d04444;
+}
+
+/* Desktop layout fixes */
+@media (min-width: 992px) {
+    .job-cards-container .col-md-6:nth-child(2n+1) {
+        clear: left;
+    }
+    
+    .job-cards-container .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .job-cards-container .col-md-6 {
+        display: flex;
+        margin-bottom: 30px;
+    }
 }
 
 /* Benefit Cards */
