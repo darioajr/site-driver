@@ -228,7 +228,7 @@
 /* Contact Form */
 .contact-form-container {
     background: white;
-    padding: 40px;
+    padding: 40px 40px 60px 40px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
@@ -255,6 +255,21 @@
 .form-control:focus {
     border-color: #e25454;
     box-shadow: 0 0 0 0.2rem rgba(226, 84, 84, 0.25);
+
+/* Posicionamento do botão dentro do container */
+.input-group-btn {
+    margin-top: 25px !important;
+    margin-bottom: 20px !important;
+    padding: 0 15px !important;
+    width: 100% !important;
+}
+
+.input-group-btn .btn-form {
+    width: calc(100% - 30px) !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+    display: block !important;
+}
 }
 
 /* Map Container */
@@ -316,7 +331,7 @@
     }
     
     .contact-form-container {
-        padding: 20px;
+        padding: 30px 20px 80px 20px !important; min-height: 700px !important;
     }
     
     .social-links {
