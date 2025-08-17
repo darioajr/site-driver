@@ -24,90 +24,89 @@
   <link rel="stylesheet" href="assets/mobirise/css/style.css">
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="assets/css/menu-custom.css">
-  
-  <style>
-    /* Força o tamanho do header de vídeo */
-    #header4-0 {
-      height: 50vh !important;
-      min-height: 400px !important;
-      max-height: 50vh !important;
-    }
-    
-    /* Destaque maior para o título */
-    .mbr-hero__text {
-      font-size: 4.5rem !important;
-      font-weight: 700 !important;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
-      margin-bottom: 30px !important;
-      line-height: 1.1 !important;
-    }
-    
-    /* Destaque maior para o subtítulo */
-    .mbr-hero__subtext {
-      font-size: 1.8rem !important;
-      font-weight: 400 !important;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.7) !important;
-      margin-bottom: 40px !important;
-      line-height: 1.4 !important;
-    }
-    
-    /* Responsividade para mobile */
-    @media (max-width: 768px) {
-      .mbr-hero__text {
-        font-size: 3rem !important;
-      }
-      .mbr-hero__subtext {
-        font-size: 1.4rem !important;
-      }
-      #header4-0 {
-        min-height: 350px !important;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/custom-override.css">
   
   <script>
-    // Força as mudanças após carregamento da página
-    document.addEventListener('DOMContentLoaded', function() {
-      // Força tamanho do header
+    // Função ultra-agressiva para forçar mudanças
+    function forceChanges() {
+      console.log('Forçando mudanças...');
+      
+      // Força tamanho do header com múltiplas abordagens
       var header = document.getElementById('header4-0');
       if (header) {
+        // Remove TODAS as classes que podem interferir
+        header.classList.remove('mbr-section--full-height');
+        
+        // Força estilos de múltiplas formas
+        header.style.cssText += '; height: 50vh !important; min-height: 400px !important; max-height: 50vh !important;';
         header.style.setProperty('height', '50vh', 'important');
         header.style.setProperty('min-height', '400px', 'important');
         header.style.setProperty('max-height', '50vh', 'important');
         
-        // Remove classes que podem interferir
-        header.classList.remove('mbr-section--full-height');
+        // Força via setAttribute também
+        var currentStyle = header.getAttribute('style') || '';
+        header.setAttribute('style', currentStyle + '; height: 50vh !important; min-height: 400px !important; max-height: 50vh !important;');
+        
+        console.log('Header height modificado:', header.style.height);
       }
       
       // Força estilos do texto
-      var title = document.querySelector('.mbr-hero__text');
+      var title = document.querySelector('#header4-0 .mbr-hero__text');
       if (title) {
-        title.style.setProperty('font-size', '4.5rem', 'important');
-        title.style.setProperty('font-weight', '700', 'important');
-        title.style.setProperty('text-shadow', '2px 2px 4px rgba(0,0,0,0.8)', 'important');
-        title.style.setProperty('margin-bottom', '30px', 'important');
-        title.style.setProperty('line-height', '1.1', 'important');
+        title.style.cssText += '; font-size: 4.5rem !important; font-weight: 700 !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important; margin-bottom: 30px !important; line-height: 1.1 !important;';
+        console.log('Título modificado:', title.style.fontSize);
       }
       
-      var subtitle = document.querySelector('.mbr-hero__subtext');
+      var subtitle = document.querySelector('#header4-0 .mbr-hero__subtext');
       if (subtitle) {
-        subtitle.style.setProperty('font-size', '1.8rem', 'important');
-        subtitle.style.setProperty('font-weight', '400', 'important');
-        subtitle.style.setProperty('text-shadow', '1px 1px 3px rgba(0,0,0,0.7)', 'important');
-        subtitle.style.setProperty('margin-bottom', '40px', 'important');
-        subtitle.style.setProperty('line-height', '1.4', 'important');
+        subtitle.style.cssText += '; font-size: 1.8rem !important; font-weight: 400 !important; text-shadow: 1px 1px 3px rgba(0,0,0,0.7) !important; margin-bottom: 40px !important; line-height: 1.4 !important;';
+        console.log('Subtítulo modificado:', subtitle.style.fontSize);
       }
-    });
+    }
     
-    // Força novamente após um pequeno delay para garantir
-    setTimeout(function() {
-      var header = document.getElementById('header4-0');
-      if (header) {
-        header.style.setProperty('height', '50vh', 'important');
-        header.style.setProperty('min-height', '400px', 'important');
-        header.style.setProperty('max-height', '50vh', 'important');
-      }
-    }, 1000);
+    // Executa imediatamente se DOM já carregou
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', forceChanges);
+    } else {
+      forceChanges();
+    }
+    
+    // Executa em múltiplos momentos para garantir
+    window.addEventListener('load', forceChanges);
+    setTimeout(forceChanges, 100);
+    setTimeout(forceChanges, 500);
+    setTimeout(forceChanges, 1000);
+    setTimeout(forceChanges, 2000);
+    setTimeout(forceChanges, 3000);
+    
+    // Observer para detectar e corrigir mudanças automáticas
+    if (window.MutationObserver) {
+      var observer = new MutationObserver(function(mutations) {
+        var needsUpdate = false;
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes' && 
+              (mutation.attributeName === 'style' || mutation.attributeName === 'class')) {
+            needsUpdate = true;
+          }
+        });
+        if (needsUpdate) {
+          setTimeout(forceChanges, 10);
+        }
+      });
+      
+      setTimeout(function() {
+        var targetNode = document.getElementById('header4-0');
+        if (targetNode) {
+          observer.observe(targetNode, { 
+            attributes: true, 
+            attributeOldValue: true,
+            subtree: true,
+            childList: true
+          });
+          console.log('Observer ativado para monitorar mudanças');
+        }
+      }, 100);
+    }
   </script>
 
   
@@ -149,7 +148,7 @@
     </div>
 </section>
 
-<section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted mbr-after-navbar" id="header4-0" data-bg-video="https://www.youtube.com/embed/leduHR2BeXk?rel=0&amp;amp;&amp;showinfo=0&amp;autoplay=0&amp;loop=0" data-rv-view="2" style="height: 50vh !important; min-height: 400px !important; max-height: 50vh !important;">
+<section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--bg-adapted mbr-after-navbar custom-half-height" id="header4-0" data-bg-video="https://www.youtube.com/embed/leduHR2BeXk?rel=0&amp;showinfo=0&amp;autoplay=1&amp;loop=1&amp;playlist=leduHR2BeXk&amp;mute=1&amp;controls=0" data-rv-view="2" style="height: 50vh !important; min-height: 400px !important; max-height: 50vh !important;">
     <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center">
         <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(34, 34, 34);"></div>
         <div class="mbr-box__container mbr-section__container container">
@@ -170,38 +169,97 @@
 <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="testimonials1-2" data-rv-view="3" style="background-color: rgb(255, 255, 255);">
     <div class="mbr-section__container container" style="padding-top: 93px; padding-bottom: 93px;">
         <div class="mbr-header mbr-header--center mbr-header--std-padding">
-            <h2 class="mbr-header__text">O QUE NOSSOS CLIENTES DIZEM</h2>
-            <p class="mbr-header__subtext">Depoimentos de empresas que confiam em nossos serviços</p>
+            <h2 class="mbr-header__text">NOSSOS CLIENTES</h2>
+            <p class="mbr-header__subtext">Empresas que confiam em nossos serviços há mais de 25 anos</p>
         </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="mbr-testimonial">
-                    <div class="mbr-testimonial__text">
-                        <p>"A Driver Tecnologia transformou nossos processos internos. Com a consultoria em TI, conseguimos reduzir custos em 30% e aumentar nossa produtividade significativamente."</p>
-                    </div>
-                    <div class="mbr-testimonial__author">
-                        <p><strong>João Silva</strong><br>CEO, Empresa ABC</p>
-                    </div>
+        
+        <!-- Grid de Clientes -->
+        <div class="clients-container">
+            <div class="clients-scroll">
+                <div class="client-logo">
+                    <img src="assets/images/logos/Cia_Hering_Logo.png" alt="CIA HERING">
                 </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="mbr-testimonial">
-                    <div class="mbr-testimonial__text">
-                        <p>"O serviço de outsourcing da Driver nos permitiu focar no nosso core business enquanto eles cuidam da nossa infraestrutura tecnológica com excelência."</p>
-                    </div>
-                    <div class="mbr-testimonial__author">
-                        <p><strong>Maria Santos</strong><br>Diretora de TI, Indústria XYZ</p>
-                    </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/tigre.png" alt="TIGRE">
                 </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="mbr-testimonial">
-                    <div class="mbr-testimonial__text">
-                        <p>"A migração para a nuvem foi perfeita. A equipe da Driver nos deu total suporte e agora temos muito mais flexibilidade e segurança."</p>
-                    </div>
-                    <div class="mbr-testimonial__author">
-                        <p><strong>Carlos Oliveira</strong><br>CTO, StartupTech</p>
-                    </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/data-a.png" alt="DATA A">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/Bunge_Limited_Logo.svg.png" alt="BUNGE">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/tractebel.png" alt="TRACTEBEL ENERGIA">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/celesc.png" alt="CELESC">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/logo_casan.png" alt="CASAN">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/perdigao.png" alt="PERDIGÃO">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/seara.png" alt="SEARA">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/schulz-logo.png" alt="SCHULZ">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/mutant.png" alt="MUTANT">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/zoly.png" alt="ZOLY">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/LOGO-PARADIGMA-2018.png" alt="PARADIGMA">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/celos.png" alt="CELOS">
+                </div>
+                <!-- Duplicação para animação contínua -->
+                <div class="client-logo">
+                    <img src="assets/images/logos/Cia_Hering_Logo.png" alt="CIA HERING">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/tigre.png" alt="TIGRE">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/data-a.png" alt="DATA A">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/Bunge_Limited_Logo.svg.png" alt="BUNGE">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/tractebel.png" alt="TRACTEBEL ENERGIA">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/celesc.png" alt="CELESC">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/logo_casan.png" alt="CASAN">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/perdigao.png" alt="PERDIGÃO">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/seara.png" alt="SEARA">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/schulz-logo.png" alt="SCHULZ">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/mutant.png" alt="MUTANT">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/zoly.png" alt="ZOLY">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/LOGO-PARADIGMA-2018.png" alt="PARADIGMA">
+                </div>
+                <div class="client-logo">
+                    <img src="assets/images/logos/celos.png" alt="CELOS">
                 </div>
             </div>
         </div>
@@ -352,6 +410,59 @@
   <![endif]-->
   <script src="assets/mobirise/js/script.js"></script>
   <script src="assets/formoid/formoid.min.js"></script>
+  
+  <!-- Script para garantir loop contínuo do vídeo -->
+  <script>
+  $(document).ready(function() {
+    // Aguarda o carregamento do YTPlayer
+    setTimeout(function() {
+      // Configura o vídeo para loop infinito
+      $('[data-bg-video]').each(function() {
+        var $element = $(this);
+        var videoId = 'leduHR2BeXk';
+        
+        // Inicializa o YTPlayer com configurações de loop
+        $element.YTPlayer({
+          videoURL: videoId,
+          containment: $element,
+          autoPlay: true,
+          loop: true,
+          mute: true,
+          startAt: 0,
+          opacity: 1,
+          showControls: false,
+          showAnnotations: false,
+          showVideoLogo: false,
+          optimizeDisplay: true,
+          stopMovieOnBlur: false,
+          onReady: function() {
+            console.log('Vídeo do header carregado e configurado para loop');
+          },
+          onEnd: function() {
+            // Força o restart do vídeo quando terminar
+            $element.YTPPlay();
+            console.log('Vídeo reiniciado automaticamente');
+          }
+        });
+      });
+    }, 2000);
+    
+    // Fallback adicional para garantir o loop
+    setInterval(function() {
+      $('[data-bg-video]').each(function() {
+        var $element = $(this);
+        if ($element.data('YTPlayer')) {
+          var player = $element.data('YTPlayer').player;
+          if (player && player.getPlayerState && player.getPlayerState() === 0) {
+            // Estado 0 = vídeo terminou
+            $element.YTPPlay();
+            console.log('Vídeo reiniciado via fallback');
+          }
+        }
+      });
+    }, 5000);
+  });
+  </script>
   
   
   

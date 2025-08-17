@@ -1,0 +1,232 @@
+/* Override FORÇADO para header e textos - tem que sobrescrever Mobirise */
+
+/* Nova classe personalizada para substituir full-height */
+.custom-half-height {
+    height: 50vh !important;
+    min-height: 400px !important;
+    max-height: 50vh !important;
+}
+
+/* Classe específica do Mobirise que precisa ser sobrescrita */
+.mbr-section--full-height {
+    height: 50vh !important;
+    min-height: 400px !important;
+    max-height: 50vh !important;
+}
+
+/* ID específico do header */
+#header4-0 {
+    height: 50vh !important;
+    min-height: 400px !important;
+    max-height: 50vh !important;
+}
+
+/* Múltiplos seletores para garantir precedência */
+section#header4-0.custom-half-height {
+    height: 50vh !important;
+    min-height: 400px !important;
+    max-height: 50vh !important;
+}
+
+section#header4-0 {
+    height: 50vh !important;
+    min-height: 400px !important;
+    max-height: 50vh !important;
+}
+
+/* Textos com máxima especificidade */
+#header4-0 .mbr-hero__text,
+section#header4-0 .mbr-hero__text,
+.mbr-hero .mbr-hero__text {
+    font-size: 4.5rem !important;
+    font-weight: 700 !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
+    margin-bottom: 30px !important;
+    line-height: 1.1 !important;
+}
+
+#header4-0 .mbr-hero__subtext,
+section#header4-0 .mbr-hero__subtext,
+.mbr-hero .mbr-hero__subtext {
+    font-size: 1.8rem !important;
+    font-weight: 400 !important;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7) !important;
+    margin-bottom: 40px !important;
+    line-height: 1.4 !important;
+}
+
+/* Impede que o YTPlayer modifique o overlay - foco na margem */
+section#header4-0.mbr-section .mbr-overlay {
+    width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    position: absolute !important;
+    transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+}
+
+/* LAYOUT HORIZONTAL DE CLIENTES - ANIMAÇÃO CONTÍNUA */
+.clients-container {
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    margin: 40px 0;
+    padding: 30px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.clients-container::before,
+.clients-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.clients-container::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(248,249,250,1), rgba(248,249,250,0));
+}
+
+.clients-container::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(248,249,250,1), rgba(248,249,250,0));
+}
+
+.clients-scroll {
+    display: flex;
+    animation: scroll 60s linear infinite;
+    white-space: nowrap;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.client-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px;
+    min-width: 140px;
+    height: 70px;
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+}
+
+.client-logo:hover {
+    transform: scale(1.1);
+}
+
+.client-logo img {
+    max-width: 120px;
+    max-height: 60px;
+    width: auto;
+    height: auto;
+    filter: grayscale(100%) opacity(0.75);
+    transition: filter 0.3s ease;
+    object-fit: contain;
+}
+
+/* Ajustes específicos para logos com muito espaço em branco */
+.client-logo img[alt="CELESC"],
+.client-logo img[alt="CASAN"], 
+.client-logo img[alt="SCHULZ"] {
+    max-width: 100px;
+    max-height: 45px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Logo Perdigão maior */
+.client-logo img[alt="PERDIGÃO"] {
+    max-width: 130px;
+    max-height: 65px;
+    object-fit: contain;
+}
+
+.client-logo:hover img {
+    filter: grayscale(70%) opacity(0.9);
+}
+
+/* Pausar animação no hover do container */
+.clients-container:hover .clients-scroll {
+    animation-play-state: paused;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .clients-scroll {
+        animation-duration: 45s;
+    }
+    
+    .client-logo {
+        margin: 0 12px;
+        min-width: 100px;
+        height: 60px;
+    }
+    
+    .client-logo img {
+        max-width: 90px;
+        max-height: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .clients-scroll {
+        animation-duration: 35s;
+    }
+    
+    .client-logo {
+        margin: 0 10px;
+        min-width: 80px;
+        height: 50px;
+    }
+    
+    .client-logo img {
+        max-width: 70px;
+        max-height: 35px;
+    }
+}
+
+/* Responsividade do Header */
+@media (max-width: 768px) {
+    #header4-0 .mbr-hero__text,
+    section#header4-0 .mbr-hero__text,
+    .mbr-hero .mbr-hero__text {
+        font-size: 3rem !important;
+    }
+    
+    #header4-0 .mbr-hero__subtext,
+    section#header4-0 .mbr-hero__subtext,
+    .mbr-hero .mbr-hero__subtext {
+        font-size: 1.4rem !important;
+    }
+    
+    #header4-0,
+    section#header4-0,
+    .custom-half-height,
+    .mbr-section--full-height {
+        min-height: 350px !important;
+        height: 50vh !important;
+    }
+}
