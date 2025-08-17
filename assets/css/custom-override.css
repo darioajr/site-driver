@@ -1,10 +1,18 @@
 /* FONTE INTER - Estilo Mutant */
-* {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+/* Excluindo elementos com ícones do override universal */
+*:not(.socicon):not([class*="socicon"]):not(i[class*="icon"]):not(.fa):not([class*="fa-"]) {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif !important;
+}
+
+/* Garantir que ícones socicon funcionem */
+.socicon, [class*="socicon"], i.socicon {
+    font-family: "socicon" !important;
+    font-style: normal !important;
+    font-weight: normal !important;
 }
 
 body, html {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif !important;
     font-weight: 400;
     letter-spacing: -0.01em;
     -webkit-font-smoothing: antialiased;
@@ -19,48 +27,48 @@ p {
 }
 
 h1, .mbr-header__text {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif !important;
     font-weight: 700;
     letter-spacing: -0.02em;
     font-size: 3.2rem !important; /* Aumentado */
 }
 
 h2 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif !important;
     font-weight: 700;
     letter-spacing: -0.02em;
     font-size: 2.8rem !important; /* Aumentado */
 }
 
 h3 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif !important;
     font-weight: 700;
     letter-spacing: -0.02em;
     font-size: 2.2rem !important; /* Aumentado */
 }
 
 h4, h5, h6 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif !important;
     font-weight: 700;
     letter-spacing: -0.02em;
     font-size: 1.5rem !important; /* Aumentado */
 }
 
 span, div, a {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif !important;
     font-size: 16px !important; /* Tamanho base aumentado */
 }
 
 /* Ajustes específicos para títulos */
 .mbr-hero__text {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif !important;
     font-weight: 800 !important;
     letter-spacing: -0.03em !important;
     font-size: 4.8rem !important; /* Aumentado significativamente */
 }
 
 .mbr-hero__subtext {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif !important;
     font-weight: 500 !important;
     letter-spacing: -0.01em !important;
     font-size: 1.4rem !important; /* Aumentado */
@@ -68,7 +76,7 @@ span, div, a {
 
 /* Menu e navegação */
 .navbar-nav .nav-link {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif !important;
     font-weight: 500 !important;
     letter-spacing: -0.01em !important;
     font-size: 16px !important; /* Aumentado */
@@ -76,14 +84,14 @@ span, div, a {
 
 /* Botões */
 .btn {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif !important;
     font-weight: 600 !important;
     letter-spacing: -0.01em !important;
     font-size: 16px !important; /* Aumentado */
 }
 
 button, input, textarea {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif !important;
     font-size: 16px !important;
 }
 
