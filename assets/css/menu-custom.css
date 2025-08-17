@@ -1,0 +1,141 @@
+/* Estilos customizados para o site da Driver Tecnologia */
+
+/* UNIFORMIZAÇÃO DE FONTES */
+* {
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+}
+
+p, span, div, a, li, td, th {
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+}
+
+/* Tamanhos padronizados */
+h1 { font-size: 2.5rem !important; }
+h2 { font-size: 2rem !important; }
+h3 { font-size: 1.75rem !important; }
+h4 { font-size: 1.5rem !important; }
+h5 { font-size: 1.25rem !important; }
+h6 { font-size: 1rem !important; }
+
+/* MENU DE NAVEGAÇÃO */
+.mbr-navbar__menu {
+    display: flex;
+    align-items: center;
+}
+
+.mbr-navbar__items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mbr-navbar__item {
+    margin: 0 5px;
+}
+
+/* Melhorar a visibilidade do menu em dispositivos móveis */
+@media (max-width: 991px) {
+    .mbr-navbar__items {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .mbr-navbar__item {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .mbr-navbar__item a {
+        display: block;
+        padding: 10px 20px;
+        text-align: center;
+    }
+}
+
+/* Hover effects para melhor UX */
+.mbr-buttons__link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Destacar página atual */
+.mbr-navbar__item .current-page {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+    font-weight: 600 !important;
+}
+
+/* Garantir que todos os itens do menu sejam visíveis */
+.mbr-navbar__items--right {
+    justify-content: flex-end;
+}
+
+/* Ajustar espaçamento para melhor visual */
+.mbr-navbar__items li {
+    white-space: nowrap;
+}
+
+/* Cores consistentes */
+.mbr-buttons__link.text-white {
+    color: #ffffff !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 500 !important;
+}
+
+.mbr-buttons__link.text-white:hover {
+    color: #e25454 !important;
+}
+
+/* ESTILIZAÇÃO GERAL */
+.mbr-hero__text {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 3rem !important;
+}
+
+.mbr-hero__subtext {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 1.25rem !important;
+}
+
+.mbr-header__text {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 700 !important;
+}
+
+.mbr-header__subtext {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400 !important;
+}
+
+/* Botões padronizados */
+.btn {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 500 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Formulários */
+.form-control {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400 !important;
+}
+
+/* Footer */
+.mbr-footer__copyright {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400 !important;
+}
