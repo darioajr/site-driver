@@ -82,6 +82,7 @@ section#header4-0.mbr-section .mbr-overlay {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     position: relative;
     transform: translateZ(0); /* Force hardware acceleration */
+    width: 100%;
 }
 
 .clients-container::before,
@@ -112,7 +113,8 @@ section#header4-0.mbr-section .mbr-overlay {
     will-change: transform;
     transform: translateZ(0); /* Force hardware acceleration */
     backface-visibility: hidden; /* Smooth animation */
-    width: 200%; /* Garante espaço suficiente para a duplicação */
+    animation-timing-function: linear;
+    animation-fill-mode: none;
 }
 
 @keyframes scroll {
