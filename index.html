@@ -17,6 +17,9 @@
   <meta property="og:type" content="website">
   
   <title>Driver Tecnologia - Conectando negócios e tecnologia desde 1995</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&subset=cyrillic,latin,greek,vietnamese">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/animatecss/animate.min.css">
@@ -425,30 +428,55 @@
           stopMovieOnBlur: false,
           onReady: function() {
             console.log('Vídeo do header carregado e configurado para loop');
+            // Força o play imediatamente após carregar
+            setTimeout(function() {
+              $element.YTPPlay();
+            }, 500);
           },
           onEnd: function() {
             // Força o restart do vídeo quando terminar
-            $element.YTPPlay();
+            setTimeout(function() {
+              $element.YTPPlay();
+            }, 100);
             console.log('Vídeo reiniciado automaticamente');
+          },
+          onPause: function() {
+            // Se pausar por qualquer motivo, retoma
+            setTimeout(function() {
+              $element.YTPPlay();
+            }, 100);
+            console.log('Vídeo retomado após pausa');
           }
         });
       });
     }, 2000);
     
-    // Fallback adicional para garantir o loop
+    // Verificação mais frequente para garantir que o vídeo continue rodando
     setInterval(function() {
       $('[data-bg-video]').each(function() {
         var $element = $(this);
         if ($element.data('YTPlayer')) {
           var player = $element.data('YTPlayer').player;
-          if (player && player.getPlayerState && player.getPlayerState() === 0) {
-            // Estado 0 = vídeo terminou
-            $element.YTPPlay();
-            console.log('Vídeo reiniciado via fallback');
+          if (player && player.getPlayerState) {
+            var state = player.getPlayerState();
+            // Estado 0 = terminou, Estado 2 = pausado, Estado 3 = buffering
+            if (state === 0 || state === 2) {
+              $element.YTPPlay();
+              console.log('Vídeo reiniciado - Estado:', state);
+            }
+            // Se estiver muito próximo do fim, reinicia preventivamente
+            if (player.getCurrentTime && player.getDuration) {
+              var current = player.getCurrentTime();
+              var duration = player.getDuration();
+              if (duration > 0 && current > (duration - 2)) {
+                player.seekTo(0);
+                console.log('Vídeo reiniciado preventivamente');
+              }
+            }
           }
         }
       });
-    }, 5000);
+    }, 2000); // Verificação a cada 2 segundos
   });
   </script>
   
